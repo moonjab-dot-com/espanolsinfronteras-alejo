@@ -30,7 +30,8 @@ const COURSE_TOPICS: Record<string, string[]> = {
 
 function getChapterHref(href: string): string {
   if (href.startsWith("http://") || href.startsWith("https://")) return href;
-  return encodeURI(href.startsWith("/") ? href : `/${href}`);
+  const path = href.startsWith("/") ? href.slice(1) : href;
+  return encodeURI(`${import.meta.env.BASE_URL}${path}`);
 }
 
 const isExternal = (href: string) =>
