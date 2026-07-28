@@ -1,0 +1,61 @@
+import { lazy, Suspense } from "react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { Toaster } from "@/components/ui/toaster";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { LanguageProvider } from "@/context/LanguageContext";
+import Layout from "@/components/layout/Layout";
+import { ScrollToTop } from "@/components/ScrollToTop";
+import HomePage from "@/pages/HomePage";
+
+const CoursePage            = lazy(() => import("@/pages/CoursePage"));
+const OportunidadesPage     = lazy(() => import("@/pages/OportunidadesPage"));
+const OpportunityDetailPage = lazy(() => import("@/pages/OpportunityDetailPage"));
+const NosotrosPage          = lazy(() => import("@/pages/NosotrosPage"));
+const BlogPage              = lazy(() => import("@/pages/BlogPage"));
+const BlogPostPage          = lazy(() => import("@/pages/BlogPostPage"));
+const NotFound              = lazy(() => import("@/pages/NotFound"));
+
+// ─── Query Client ─────────────────────────────────────────────────────────────
+
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5, // 5 minutes
+      retry: 1,
+    },
+  },
+});
+
+// ─── App ──────────────────────────────────────────────────────────────────────
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Sonner />
+      <BrowserRouter basename="/espanolsinfronteras-alejo">
+        <ScrollToTop />
+        <LanguageProvider>
+          <Layout>
+            <Suspense fallback={null}>
+              <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/curso/:slug" element={<CoursePage />} />
+                <Route path="/oportunidades"          element={<OportunidadesPage />} />
+                <Route path="/oportunidades/:id"      element={<OpportunityDetailPage />} />
+                <Route path="/nosotros"               element={<NosotrosPage />} />
+                <Route path="/blog"                   element={<BlogPage />} />
+                <Route path="/blog/:slug"             element={<BlogPostPage />} />
+<Route path="*"             element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </Layout>
+        </LanguageProvider>
+      </BrowserRouter>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
+
+export default App;
