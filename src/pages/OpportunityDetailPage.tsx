@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useLanguage } from "@/context/LanguageContext";
 import { OPPORTUNITIES, CATEGORY_CONFIG } from "@/data/opportunities";
 import { useSEO } from "@/hooks/use-seo";
+import { withBase } from "@/lib/utils";
 import {
   ArrowLeft, Calendar, MapPin, ExternalLink, Users,
   BookOpen, Tag, CheckCircle, Info, Link2,
@@ -70,7 +71,7 @@ export default function OpportunityDetailPage() {
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)", backgroundSize: "24px 24px", pointerEvents: "none" }} />
         {/* Mascot faint bg */}
         {opp.mascotImage && (
-          <img src={opp.mascotImage} alt="" aria-hidden="true" style={{
+          <img src={withBase(opp.mascotImage)} alt="" aria-hidden="true" style={{
             position: "absolute", right: "5%", bottom: 0, height: "180px",
             opacity: 0.08, objectFit: "contain", pointerEvents: "none", userSelect: "none",
           }} />

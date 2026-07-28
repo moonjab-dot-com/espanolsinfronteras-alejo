@@ -9,6 +9,7 @@ import {
 } from "lucide-react";
 import { courseIconMap } from "@/lib/course-icons";
 import { COURSE_MASCOTS } from "@/lib/course-mascots";
+import { withBase } from "@/lib/utils";
 
 // ─── Reveal ───────────────────────────────────────────────────────────────────
 
@@ -58,10 +59,10 @@ function HeroSection() {
       <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.045) 1px, transparent 1px)", backgroundSize: "32px 32px", pointerEvents: "none" }} />
 
       {/* SVG illustration — Translate / language — faint behind hero text */}
-      <img src="/Translate-Streamline.svg" alt="" aria-hidden="true"
+      <img src={withBase("/Translate-Streamline.svg")} alt="" aria-hidden="true"
         style={{ position: "absolute", left: "0px", bottom: "0px", width: "280px", opacity: 0.035, pointerEvents: "none", userSelect: "none" }} />
       {/* Lets-Start illustration — faint, bottom-left energizer */}
-      <img src="/Lets-Start-1--Streamline-Barcelona.png" alt="" aria-hidden="true"
+      <img src={withBase("/Lets-Start-1--Streamline-Barcelona.png")} alt="" aria-hidden="true"
         draggable={false} onContextMenu={e => e.preventDefault()} onDragStart={e => e.preventDefault()}
         style={{ position: "absolute", left: "2%", top: "15%", height: "180px", width: "auto", opacity: 0.07, pointerEvents: "none", userSelect: "none", filter: "brightness(3) saturate(0)" }} />
 
@@ -143,7 +144,7 @@ function HeroSection() {
             {/* Amber glow under owl */}
             <div style={{ position: "absolute", bottom: "40px", left: "50%", transform: "translateX(-50%)", width: "300px", height: "300px", borderRadius: "50%", background: "radial-gradient(circle, rgba(251,191,36,0.18) 0%, transparent 70%)", filter: "blur(20px)" }} />
             <img
-              src="/owl-logo.png"
+              src={withBase("/owl-logo.png")}
               alt={t ? "Mascota de Español Sin Fronteras" : "Español Sin Fronteras mascot"}
               className="animate-float-slow"
               style={{ position: "relative", zIndex: 10, width: "100%", height: "100%", objectFit: "contain", filter: "drop-shadow(0 30px 60px rgba(132,204,22,0.25)) drop-shadow(0 0 80px rgba(0,0,0,0.5))" }}
@@ -187,7 +188,7 @@ function CoursesSection() {
   return (
     <section id="cursos" style={{ background: "#EEF1F9", paddingTop: "80px", paddingBottom: "80px", position: "relative", overflow: "hidden" }}>
       {/* Ride illustration — bottom right energizer */}
-      <img src="/Ride-E-Scooter-1--Streamline-Barcelona.png" alt="" aria-hidden="true"
+      <img src={withBase("/Ride-E-Scooter-1--Streamline-Barcelona.png")} alt="" aria-hidden="true"
         draggable={false} onContextMenu={e => e.preventDefault()} onDragStart={e => e.preventDefault()}
         style={{ position: "absolute", right: "0", bottom: "0", height: "220px", width: "auto", opacity: 0.1, pointerEvents: "none", userSelect: "none", filter: "saturate(0.3)" }} />
       {/* Watermark — "GRATIS" typographic flourish */}
@@ -218,7 +219,7 @@ function CoursesSection() {
             </div>
             <div className="hidden md:flex items-center gap-5">
               <img
-                src="/Online-Learning-1--Streamline-Barcelona.png"
+                src={withBase("/Online-Learning-1--Streamline-Barcelona.png")}
                 alt=""
                 aria-hidden="true"
                 draggable={false}
@@ -376,10 +377,10 @@ function OpportunitiesTeaser() {
     <section style={{ background: "#080D1C", padding: "80px 0 0", position: "relative", overflow: "hidden" }}>
 
       {/* Background SVG illustration — faint */}
-      <img src="/Advertising-Streamline.svg" alt="" aria-hidden="true"
+      <img src={withBase("/Advertising-Streamline.svg")} alt="" aria-hidden="true"
         style={{ position: "absolute", right: "-40px", top: "20px", width: "340px", opacity: 0.04, pointerEvents: "none", userSelect: "none" }} />
       {/* Floating illustration — Get Job Promotion */}
-      <img src="/Get-Job-Promotion-1--Streamline-Barcelona.png" alt="" aria-hidden="true"
+      <img src={withBase("/Get-Job-Promotion-1--Streamline-Barcelona.png")} alt="" aria-hidden="true"
         draggable={false}
         onContextMenu={e => e.preventDefault()}
         onDragStart={e => e.preventDefault()}
@@ -606,12 +607,12 @@ function TestimonialsSection() {
 
   return (
     <section style={{ background: "#EEF1F9", padding: "80px 0", position: "relative", overflow: "hidden" }} id="comentarios">
-      <img src="/FacetimeMeeting-Streamline.svg" alt="" aria-hidden="true"
+      <img src={withBase("/FacetimeMeeting-Streamline.svg")} alt="" aria-hidden="true"
         style={{ position: "absolute", right: "-20px", top: "30px", width: "240px", opacity: 0.05, pointerEvents: "none", userSelect: "none" }} />
-      <img src="/Team-Success-1--Streamline-Barcelona.png" alt="" aria-hidden="true"
+      <img src={withBase("/Team-Success-1--Streamline-Barcelona.png")} alt="" aria-hidden="true"
         draggable={false} onContextMenu={e => e.preventDefault()} onDragStart={e => e.preventDefault()}
         style={{ position: "absolute", right: "2%", bottom: 0, height: "55%", width: "auto", opacity: 0.08, pointerEvents: "none", userSelect: "none", filter: "saturate(0)" }} />
-      <img src="/Digital-Nomad-Working-In-Airport-2--Streamline-Barcelona.png" alt="" aria-hidden="true"
+      <img src={withBase("/Digital-Nomad-Working-In-Airport-2--Streamline-Barcelona.png")} alt="" aria-hidden="true"
         draggable={false} onContextMenu={e => e.preventDefault()} onDragStart={e => e.preventDefault()}
         style={{ position: "absolute", left: "0", bottom: "0", height: "55%", width: "auto", opacity: 0.07, pointerEvents: "none", userSelect: "none", filter: "saturate(0)" }} />
       <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
@@ -701,16 +702,16 @@ function ContactSection() {
     <section style={{ background: "#080D1C", padding: "80px 0", position: "relative", overflow: "hidden" }} id="contacto">
       <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
       <div style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%,-50%)", width: "600px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, rgba(132,204,22,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
-      <img src="/OnlineLearning-Streamline.svg" alt="" aria-hidden="true"
+      <img src={withBase("/OnlineLearning-Streamline.svg")} alt="" aria-hidden="true"
         style={{ position: "absolute", right: "-20px", bottom: "-20px", width: "280px", opacity: 0.04, pointerEvents: "none", userSelect: "none" }} />
-      <img src="/Becoming-Rich-1--Streamline-Barcelona.png" alt="" aria-hidden="true"
+      <img src={withBase("/Becoming-Rich-1--Streamline-Barcelona.png")} alt="" aria-hidden="true"
         draggable={false} onContextMenu={e => e.preventDefault()} onDragStart={e => e.preventDefault()}
         style={{ position: "absolute", left: "3%", bottom: 0, height: "70%", width: "auto", opacity: 0.09, pointerEvents: "none", userSelect: "none", filter: "brightness(2) saturate(0)" }} />
       <div className="container-page" style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
         <Reveal>
           <div style={{ maxWidth: "560px", margin: "0 auto" }}>
             <div style={{ width: "72px", height: "72px", margin: "0 auto 24px" }}>
-              <img src="/owl-logo.png" alt="" aria-hidden="true" className="animate-float-slow"
+              <img src={withBase("/owl-logo.png")} alt="" aria-hidden="true" className="animate-float-slow"
                 style={{ width: "100%", height: "100%", objectFit: "contain", opacity: 0.75 }} loading="lazy" />
             </div>
             <div style={{ display: "inline-flex", alignItems: "center", gap: "8px", padding: "6px 16px", borderRadius: "99px", background: "rgba(132,204,22,0.1)", border: "1px solid rgba(132,204,22,0.25)", marginBottom: "20px" }}>

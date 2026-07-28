@@ -8,6 +8,7 @@ import {
   Code, Award, BookOpen, TrendingUp, Handshake, Info, Search, X,
 } from "lucide-react";
 import { OPPORTUNITIES as ALL_OPPS, type OppCategory } from "@/data/opportunities";
+import { withBase } from "@/lib/utils";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -646,7 +647,7 @@ export default function OportunidadesPage() {
           {/* Floating illustration */}
           <div className="hidden md:flex justify-center mb-4">
             <img
-              src="/Success-2--Streamline-Barcelona.png"
+              src={withBase("/Success-2--Streamline-Barcelona.png")}
               alt=""
               aria-hidden="true"
               draggable={false}

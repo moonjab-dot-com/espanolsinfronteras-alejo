@@ -2,6 +2,7 @@ import { useState, useCallback, useRef, useEffect } from "react";
 import { useLanguage } from "@/context/LanguageContext";
 import { testimonials, faqItems, socialLinks, partners } from "@/data/courses";
 import { BrandScroller } from "@/components/ui/brand-scroller";
+import { withBase } from "@/lib/utils";
 import {
   Backpack, BookOpen, ChevronDown, ExternalLink, Globe, GraduationCap,
   Handshake, Heart, Lightbulb, Mail, MessageCircle, Quote,
@@ -63,12 +64,12 @@ export default function NosotrosPage() {
   const items = testimonials.map((tm, i) => ({ text: tm.text, author: tm.author, colorIndex: i }));
 
   const owls = [
-    { src: "/OWL_WITH_SPAIN_FLAG.png",            labelEs: "Comunicación",  labelEn: "Communication", accent: "#3b82f6" },
-    { src: "/OWL_SCIENCE.png",                    labelEs: "Ciencias",      labelEn: "Science",       accent: "#10b981" },
-    { src: "/OWL_CODING.png",                     labelEs: "Programación",  labelEn: "Coding",        accent: "#8b5cf6" },
-    { src: "/OWL_NUMBER_ONE.png",                 labelEs: "Matemáticas",   labelEn: "Math",          accent: "#f59e0b" },
-    { src: "/OWL_INVESTIGATOR_WITH_COMPUTER.png", labelEs: "Tecnología",    labelEn: "Technology",    accent: "#22577a" },
-    { src: "/OWL_READING.png",                    labelEs: "Inglés",        labelEn: "English",       accent: "#f43f5e" },
+    { src: withBase("/OWL_WITH_SPAIN_FLAG.png"),            labelEs: "Comunicación",  labelEn: "Communication", accent: "#3b82f6" },
+    { src: withBase("/OWL_SCIENCE.png"),                    labelEs: "Ciencias",      labelEn: "Science",       accent: "#10b981" },
+    { src: withBase("/OWL_CODING.png"),                     labelEs: "Programación",  labelEn: "Coding",        accent: "#8b5cf6" },
+    { src: withBase("/OWL_NUMBER_ONE.png"),                 labelEs: "Matemáticas",   labelEn: "Math",          accent: "#f59e0b" },
+    { src: withBase("/OWL_INVESTIGATOR_WITH_COMPUTER.png"), labelEs: "Tecnología",    labelEn: "Technology",    accent: "#22577a" },
+    { src: withBase("/OWL_READING.png"),                    labelEs: "Inglés",        labelEn: "English",       accent: "#f43f5e" },
   ];
 
   return (
@@ -81,7 +82,7 @@ export default function NosotrosPage() {
         {/* Lime glow */}
         <div style={{ position: "absolute", right: "-80px", top: "40%", transform: "translateY(-50%)", width: "500px", height: "500px", borderRadius: "50%", background: "radial-gradient(circle, rgba(132,204,22,0.1) 0%, transparent 70%)", pointerEvents: "none" }} />
         {/* SVG watermark */}
-        <img src="/WalkTogether-Streamline.svg" alt="" aria-hidden="true"
+        <img src={withBase("/WalkTogether-Streamline.svg")} alt="" aria-hidden="true"
           style={{ position: "absolute", right: 0, bottom: 0, width: "320px", opacity: 0.04, pointerEvents: "none", userSelect: "none" }} />
 
         <div className="container-page" style={{ position: "relative", zIndex: 1, width: "100%" }}>
@@ -115,7 +116,7 @@ export default function NosotrosPage() {
             {/* Right — owl mascot */}
             <div className="hidden lg:block" style={{ width: "260px", height: "320px", position: "relative" }}>
               <div style={{ position: "absolute", bottom: "20px", left: "50%", transform: "translateX(-50%)", width: "220px", height: "220px", borderRadius: "50%", background: "radial-gradient(circle, rgba(251,191,36,0.15) 0%, transparent 70%)", filter: "blur(20px)" }} />
-              <img src="/owl-logo.png" alt={t ? "Mascota ESF" : "ESF Mascot"} className="animate-float-slow"
+              <img src={withBase("/owl-logo.png")} alt={t ? "Mascota ESF" : "ESF Mascot"} className="animate-float-slow"
                 style={{ width: "100%", height: "100%", objectFit: "contain", filter: "drop-shadow(0 20px 40px rgba(132,204,22,0.2))", position: "relative", zIndex: 1 }} loading="eager" />
             </div>
           </div>
@@ -182,7 +183,7 @@ export default function NosotrosPage() {
               {/* Glow behind illustration */}
               <div style={{ position: "absolute", inset: "20%", borderRadius: "50%", background: "radial-gradient(circle, rgba(132,204,22,0.12) 0%, transparent 70%)", filter: "blur(30px)", pointerEvents: "none" }} />
               <img
-                src="/About-Our-Team-1--Streamline-Barcelona.png"
+                src={withBase("/About-Our-Team-1--Streamline-Barcelona.png")}
                 alt={t ? "El equipo de Español Sin Fronteras" : "The Español Sin Fronteras team"}
                 draggable={false}
                 onContextMenu={e => e.preventDefault()}
@@ -254,7 +255,7 @@ export default function NosotrosPage() {
       <section style={{ background: "#080D1C", padding: "80px 0", position: "relative", overflow: "hidden" }} id="galeria">
         {/* Dot-grid texture */}
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
-        <img src="/Startup-Streamline.svg" alt="" aria-hidden="true"
+        <img src={withBase("/Startup-Streamline.svg")} alt="" aria-hidden="true"
           style={{ position: "absolute", left: "-20px", bottom: "20px", width: "260px", opacity: 0.04, pointerEvents: "none", userSelect: "none" }} />
 
         <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
@@ -268,9 +269,9 @@ export default function NosotrosPage() {
           </Reveal>
           <div className="grid grid-cols-1 sm:grid-cols-3" style={{ gap: "16px" }}>
             {[
-              { src: "/media1.png", captionEs: "Educación en acción",  captionEn: "Education in action", accent: "#84cc16" },
-              { src: "/media2.png", captionEs: "Nuestro impacto",      captionEn: "Our impact",          accent: "#38a3a5" },
-              { src: "/media3.png", captionEs: "Comunidad ESF",        captionEn: "ESF Community",       accent: "#5b21b6" },
+              { src: withBase("/media1.png"), captionEs: "Educación en acción",  captionEn: "Education in action", accent: "#84cc16" },
+              { src: withBase("/media2.png"), captionEs: "Nuestro impacto",      captionEn: "Our impact",          accent: "#38a3a5" },
+              { src: withBase("/media3.png"), captionEs: "Comunidad ESF",        captionEn: "ESF Community",       accent: "#5b21b6" },
             ].map(({ src, captionEs, captionEn, accent }, i) => (
               <Reveal key={i} delay={i * 70}>
                 <div style={{ borderRadius: "16px", border: `2px solid ${accent}`, overflow: "hidden", background: "#111827", boxShadow: `4px 4px 0 ${accent}`, transition: "transform 0.15s, box-shadow 0.15s" }}
@@ -300,7 +301,7 @@ export default function NosotrosPage() {
             <div style={{ maxWidth: "680px", padding: "40px 44px", background: "#fff", border: "2px solid #84cc16", borderRadius: "20px", boxShadow: "6px 6px 0 #84cc16", display: "flex", alignItems: "flex-start", gap: "28px" }}>
               {/* Owl */}
               <div className="hidden sm:block" style={{ flexShrink: 0, width: "100px" }}>
-                <img src="/OWL_INVESTIGADOR_WITH_BOOK.png" alt="" aria-hidden="true"
+                <img src={withBase("/OWL_INVESTIGADOR_WITH_BOOK.png")} alt="" aria-hidden="true"
                   className="animate-float-slow" style={{ width: "100px", height: "100px", objectFit: "contain" }} loading="lazy" />
               </div>
               <div style={{ flex: 1 }}>
@@ -367,7 +368,7 @@ export default function NosotrosPage() {
 
       {/* ── TESTIMONIOS ──────────────────────────────────────────────────────── */}
       <section style={{ background: "#EEF1F9", padding: "80px 0", position: "relative", overflow: "hidden" }} id="testimonios">
-        <img src="/FacetimeMeeting-Streamline.svg" alt="" aria-hidden="true"
+        <img src={withBase("/FacetimeMeeting-Streamline.svg")} alt="" aria-hidden="true"
           style={{ position: "absolute", right: "-20px", top: "30px", width: "240px", opacity: 0.05, pointerEvents: "none", userSelect: "none" }} />
         <div className="container-page" style={{ position: "relative", zIndex: 1 }}>
           <Reveal>
@@ -419,7 +420,7 @@ export default function NosotrosPage() {
       <section style={{ background: "#080D1C", padding: "80px 0", position: "relative", overflow: "hidden" }} id="contacto">
         <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "28px 28px", pointerEvents: "none" }} />
         <div style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%,-50%)", width: "600px", height: "400px", borderRadius: "50%", background: "radial-gradient(circle, rgba(132,204,22,0.08) 0%, transparent 70%)", pointerEvents: "none" }} />
-        <img src="/OnlineLearning-Streamline.svg" alt="" aria-hidden="true"
+        <img src={withBase("/OnlineLearning-Streamline.svg")} alt="" aria-hidden="true"
           style={{ position: "absolute", right: "-20px", bottom: "-20px", width: "280px", opacity: 0.04, pointerEvents: "none", userSelect: "none" }} />
 
         <div className="container-page" style={{ position: "relative", zIndex: 1, textAlign: "center" }}>
@@ -427,7 +428,7 @@ export default function NosotrosPage() {
             <div style={{ maxWidth: "560px", margin: "0 auto" }}>
               {/* Owl */}
               <div style={{ width: "72px", height: "72px", margin: "0 auto 24px" }}>
-                <img src="/OWL_WITH_THE_EARTH.png" alt="" aria-hidden="true"
+                <img src={withBase("/OWL_WITH_THE_EARTH.png")} alt="" aria-hidden="true"
                   className="animate-float-slow" style={{ width: "100%", height: "100%", objectFit: "contain", opacity: 0.7 }} loading="lazy" />
               </div>
               <Eyebrow icon={Sparkles}>{t ? "¿Hablamos?" : "Let's connect"}</Eyebrow>

@@ -2,14 +2,15 @@
 (function () {
   var nav = document.createElement('div');
   nav.id = 'esf-nav';
+  var base = '/espanolsinfronteras-alejo/';
   nav.innerHTML =
-    '<a href="/" id="esf-nav-logo" title="Inicio">' +
-      '<img src="/esf-logo.png" alt="Español Sin Fronteras" style="height:32px;width:auto;display:block;" />' +
+    '<a href="' + base + '" id="esf-nav-logo" title="Inicio">' +
+      '<img src="' + base + 'esf-logo.png" alt="Español Sin Fronteras" style="height:32px;width:auto;display:block;" />' +
     '</a>' +
     '<div style="display:flex;align-items:center;gap:16px;">' +
-      '<a href="/" class="esf-nav-link">Inicio</a>' +
-      '<a href="/#cursos" class="esf-nav-link">Cursos</a>' +
-      '<a href="/oportunidades" class="esf-nav-link">Oportunidades</a>' +
+      '<a href="' + base + '" class="esf-nav-link">Inicio</a>' +
+      '<a href="' + base + '#cursos" class="esf-nav-link">Cursos</a>' +
+      '<a href="' + base + 'oportunidades" class="esf-nav-link">Oportunidades</a>' +
     '</div>';
   var style = document.createElement('style');
   style.textContent =

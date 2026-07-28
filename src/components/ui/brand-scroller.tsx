@@ -12,6 +12,7 @@
 
 import { useState, useMemo } from "react";
 import type { Partner } from "@/data/courses";
+import { withBase } from "@/lib/utils";
 
 // ─── PartnerPill ──────────────────────────────────────────────────────────────
 
@@ -48,7 +49,7 @@ function PartnerPill({ partner, lang, decorative = false }: PartnerPillProps) {
       >
         {!imgError ? (
           <img
-            src={partner.logo}
+            src={withBase(partner.logo)}
             alt=""
             className="h-full w-full object-contain p-1"
             loading="lazy"

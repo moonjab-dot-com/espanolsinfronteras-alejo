@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Heart, Menu, X } from "lucide-react";
 import { useLanguage } from "@/context/LanguageContext";
 import { socialLinks } from "@/data/courses";
+import { withBase } from "@/lib/utils";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -57,7 +58,7 @@ function Nav() {
           aria-label="Español Sin Fronteras — Inicio"
         >
           <img
-            src="/esf-logo.png"
+            src={withBase("/esf-logo.png")}
             alt="Español Sin Fronteras"
             className="h-9 w-auto group-hover:brightness-110 transition-all duration-200"
             width={120}
@@ -151,7 +152,7 @@ function Footer() {
           <div className="flex flex-col gap-3">
             <Link to="/" aria-label="Español Sin Fronteras — Inicio">
               <img
-                src="/esf-logo.png"
+                src={withBase("/esf-logo.png")}
                 alt="Español Sin Fronteras"
                 className="h-8 w-auto opacity-75 hover:opacity-100 transition-opacity"
                 width={110}

@@ -6,6 +6,7 @@ import type { Chapter } from "@/data/courses";
 import { ArrowLeft, BookOpen, ExternalLink, GraduationCap } from "lucide-react";
 import { courseIconMap } from "@/lib/course-icons";
 import { COURSE_MASCOTS, UNIT_NAMES } from "@/lib/course-mascots";
+import { withBase } from "@/lib/utils";
 import { useSEOMeta } from "@/hooks/useSEOMeta";
 import { QUIZ_HREFS } from "@/data/quizChapters";
 
@@ -364,7 +365,7 @@ function MascotPanel({
   const t = lang === "es";
   const title = t ? course.titleEs : course.titleEn;
   const description = t ? course.descriptionEs : course.descriptionEn;
-  const mascot = COURSE_MASCOTS[course.slug] ?? "/owl-logo.png";
+  const mascot = COURSE_MASCOTS[course.slug] ?? withBase("/owl-logo.png");
   const totalChaps = course.chapters.length;
 
   return (
@@ -508,7 +509,7 @@ const CoursePage = () => {
       <div className="flex min-h-[70vh] items-center justify-center px-5">
         <div className="text-center max-w-sm">
           <img
-            src="/owl-logo.png"
+            src={withBase("/owl-logo.png")}
             alt=""
             aria-hidden
             className="w-20 h-20 object-contain mx-auto mb-4 opacity-30"
@@ -536,7 +537,7 @@ const CoursePage = () => {
   const description = t ? course.descriptionEs : course.descriptionEn;
   const theme = PATH_THEME[course.colorClass as ThemeKey] ?? PATH_THEME.blue;
   const Icon = courseIconMap[course.icon];
-  const mascot = COURSE_MASCOTS[course.slug] ?? "/owl-logo.png";
+  const mascot = COURSE_MASCOTS[course.slug] ?? withBase("/owl-logo.png");
 
   const unitNames = UNIT_NAMES[course.slug] ?? [];
   const UNIT_SIZE = 6;

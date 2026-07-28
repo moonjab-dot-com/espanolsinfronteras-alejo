@@ -70,13 +70,13 @@
     var fav = document.createElement("link");
     fav.rel  = "icon";
     fav.type = "image/png";
-    fav.href = "/owl-logo.png";
+    fav.href = "/espanolsinfronteras-alejo/owl-logo.png";
     document.head.appendChild(fav);
   }
   if (!document.querySelector('link[rel="apple-touch-icon"]')) {
     var aFav = document.createElement("link");
     aFav.rel  = "apple-touch-icon";
-    aFav.href = "/owl-logo.png";
+    aFav.href = "/espanolsinfronteras-alejo/owl-logo.png";
     document.head.appendChild(aFav);
   }
 
